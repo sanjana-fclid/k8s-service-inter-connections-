@@ -17,7 +17,3 @@ spec:
           image: your-docker-image-for-service-a
           ports:
             - containerPort: 8080
-          env:
-            - name: SERVICE_B_URL
-              value: "http://service-b:8080" # Pointing to Service B
-a
