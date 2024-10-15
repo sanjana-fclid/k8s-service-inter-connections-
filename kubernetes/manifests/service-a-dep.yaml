@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: service-a
-          image: your-docker-image-for-service-a
+          image: mysql
           ports:
             - containerPort: 8080
