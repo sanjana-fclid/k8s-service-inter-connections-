@@ -1,16 +1,18 @@
-# Use an official Python runtime as a parent image
 FROM python:3.10-slim
 
-# Set the working directory inside the container
+# Install curl and iputils-ping (for ping)
+RUN apt-get update && \
+    apt-get install -y curl iputils-ping && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set the working directory
 WORKDIR /app
 
-# Copy the 'fast-api' folder into the container's /app directory
-COPY app/ /app
+# Copy your application files
+COPY . .
 
-# Install dependencies
-COPY requirements.txt /app/requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# Install any Python dependencies if you have a requirements.txt
+# RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port 8000
-EXPOSE 8000
-CMD ["python" , "app.py"]
+# Command to run your application
+CMD ["python", "your_script.py"]

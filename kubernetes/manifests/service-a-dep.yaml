@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: service-a
-          image: python
+          image: sanjanafclid/intercom
           ports:
             - containerPort: 8080
